@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,oBAAoB;AACpB,AAAA,WAAW,CAAC;EACV,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,GAAG,EAAE,IAAI;CACV;;AAGD,AAAA,kBAAkB,CAAC;EACjB,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,IAAI;CACZ;;AAED,AAAA,aAAa,CAAC;EACZ,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAc;EACrC,GAAG,EAAE,IAAI;CACV;;AAED,AAAA,aAAa,CAAC;EACZ,MAAM,EAAE,IAAI;CACb;;AAED,AAAA,kBAAkB,CAAC;EACjB,KAAK,EAAE,IAAI;CACZ",
+    "sources": [
+        "main.component.scss"
+    ],
+    "names": [],
+    "file": "main.component.css"
+}

@@ -1,0 +1,26 @@
+/* src/styles.css */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.catalog-container {
+  padding: 16px;
+  width: 100%;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.catalog-card {
+  height: 100%;
+}
+
+.full-width-button {
+  width: 100%;
+}

@@ -1,0 +1,84 @@
+<div class="row justify-content-end" *ngIf="!onEdit">
+  <div class="col-md-2 d-flex flex-column justify-content-end" style="height: 100px;">
+    <button type="button" class="btn btn-success btn-lg mb-5 "  data-bs-toggle="modal" data-bs-target="#myModal">ADD NEW ITEM</button>
+  </div>
+</div>
+
+<form *ngIf="onEdit" class="row g-3" [formGroup]="myForm" (ngSubmit)="onSubmitEdit()">
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Name</label>
+    <input type="text" class="form-control" id="inputEmail4" formControlName="name">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Category</label>
+    <input type="text" class="form-control" id="inputPassword4" formControlName="category">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Description</label>
+    <input type="text" class="form-control" id="inputAddress" formControlName="description">
+  </div>
+
+  <div class="col-12">
+    <button (click)="onEdit = false; myForm.reset()" class="btn btn-secondary ml-3">Cancel</button>
+    <button type="submit" class="btn btn-primary ml-3">Update</button>
+  </div>
+</form>
+<div class="row mt-5">
+  <div *ngFor="let item of CatalogList" class="col-md-3">
+    <mat-card  class="catalog-card">
+      <mat-card-header>
+        <mat-card-title>{{ item.name }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="item.imageUrl" alt="image">
+      <mat-card-content>
+        <mat-card-title>{{ item.category }}</mat-card-title>
+        <p>{{ item.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="primary" class="full-width-button" (click)="patchValue(item)">Edit</button>
+      </mat-card-actions>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" class="full-width-button" [routerLink]="['/view', item.id]" >Learn More</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+
+
+
+
+<div class="container mt-5">
+
+
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Add new item</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" class="form-control" formControlName="name">
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" id="description" class="form-control" formControlName="description">
+            </div>
+            <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+              <input type="text" id="category" class="form-control" formControlName="category">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="!myForm.valid">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
